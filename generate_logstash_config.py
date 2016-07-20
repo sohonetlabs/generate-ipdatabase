@@ -14,6 +14,12 @@ ignorecategories = [
   'organizations',    # Includes mostly known good hosts
 ]
 
+def score(category):
+  if category == "attacks":
+    return -10
+  else:
+    return -1
+
 r = requests.get("http://iplists.firehol.org/all-ipsets.json")
 ipsets = json.loads(r.content)
 
@@ -30,6 +36,7 @@ for ipset in ipsets:
   name = "%s %s" % (ipset['maintainer'], ipset['ipset'])
   shortname = ipset['ipset']
   category = ipset['category']
+  reputation_score = score(category)
 
   info_url = "http://iplists.firehol.org/%s.json" % shortname
   request = requests.get(info_url)
@@ -51,12 +58,13 @@ for ipset in ipsets:
     codec           => line
     type            => iplist
     add_field       => {
-      "[database][name]"       => "%s"
-      "[database][shortname]"  => "%s"
-      "[database][category]"   => "%s"
+      "[database][name]"              => "%s"
+      "[database][shortname]"         => "%s"
+      "[database][category]"          => "%s"
+      "[database][reputation_score]"  => "%s"
     }
     tags            => [ 'ipdatabase' ]
-  }''' % (url, name, shortname, category)
+  }''' % (url, name, shortname, category, reputation_score)
 
 output += "\n}"
 
