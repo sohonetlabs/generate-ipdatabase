@@ -9,8 +9,9 @@ ignoreproviders = [
 
 # Ignore categories - categories we dont want to use
 ignorecategories = [
-  'unroutable', # This will include private address space, and we will match against internal data which includes pridate address space
-  'geolocation', # Geolocation data
+  'unroutable',       # This will include private address space, and we will match against internal data which includes pridate address space
+  'geolocation',      # Geolocation data
+  'organizations',    # Includes mostly known good hosts
 ]
 
 r = requests.get("http://iplists.firehol.org/all-ipsets.json")
