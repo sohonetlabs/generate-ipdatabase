@@ -63,7 +63,7 @@ for ipset in ipsets:
       "[database][category]"          => "%s"
       "[database][reputation_score]"  => "%s"
     }
-    tags            => [ 'ipdatabase' ]
+    tags            => [ 'ipdatabase', 'badip' ]
   }''' % (url, name, shortname, category, reputation_score)
 
 output += "\n}"
