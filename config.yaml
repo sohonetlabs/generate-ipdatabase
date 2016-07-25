@@ -1,0 +1,16 @@
+---
+# Elasticsearch Settings
+elasticsearch_host: localhost
+elasticsearch_index: ipdatabase
+
+# ipset providers to ignore
+ignore_providers: []
+
+# ipset categories to ignore
+ignore_categories:
+  - unroutable      # This will include private address space, and we will match against internal data which includes pridate address space
+  - geolocation     # Geolocation data
+  - organizations   # Includes mostly known good hosts
+
+whitelist:
+  - 8.8.8.8
