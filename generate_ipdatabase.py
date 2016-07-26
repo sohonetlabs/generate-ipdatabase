@@ -108,8 +108,9 @@ def update(data, name, shortname, category):
   actions = []
 
   for line in data:
-    match = re.match("^#", line)
-    if match:
+    if re.match("^#", line):
+      continue
+    if re.match("^\s*$", line):
       continue
 
     document = {
