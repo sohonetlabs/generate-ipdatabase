@@ -12,5 +12,11 @@ ignore_categories:
   - geolocation     # Geolocation data
   - organizations   # Includes mostly known good hosts
 
+# ipset databases to ignore
+ignore_databases:
+  - firehol_webserver  # Only relevant to web traffic
+  - hphosts_emd        # Too many false positives
+  - jigsaw_attacks     # Out of date, need to subscribe to get recent database
+
 whitelist:
   - 8.8.8.8

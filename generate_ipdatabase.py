@@ -87,6 +87,11 @@ def handle():
     if category in config['ignore_categories']:
       logger.info("Skipping %s due to matching ignore_categories" % name)
       continue
+    # Ignore databases
+    if shortname in config['ignore_databases']:
+      logger.info("Skipping %s due to matching ignore_databases" % name)
+      continue
+
 
     info_url = "http://iplists.firehol.org/%s.json" % shortname
     info_request = requests.get(info_url)
