@@ -18,5 +18,10 @@ ignore_databases:
   - hphosts_emd        # Too many false positives
   - jigsaw_attacks     # Out of date, need to subscribe to get recent database
 
+# overwrite reputation score for specific databases
+reputation_scores:
+  firehol_level4: -1
+
+# Whitelist specific IP addresses (+100 reputation score)
 whitelist:
   - 8.8.8.8

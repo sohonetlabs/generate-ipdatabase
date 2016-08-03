@@ -62,11 +62,13 @@ def usage():
   print("%s -c <configfile> [--debug]" % os.path.basename(__file__))
 
 # Generate reputation score based on category
-def score(category):
-  if category == "attacks":
-    return -10
-  elif category == "whitelist":
+def score(category, shortname):
+  if category == "whitelist":
     return 100
+  elif shortname in config['reputation_scores'].keys():
+    return config['reputation_scores'][shortname]
+  elif category == "attacks":
+    return -10
   else:
     return -1
 
@@ -127,7 +129,7 @@ def update(data, name, shortname, category):
           'name': name,
           'shortname': shortname,
           'category': category,
-          'reputation_score': score(category),
+          'reputation_score': score(category, shortname),
         },
         'tags': [ 'ipdatabase' ],
       }
