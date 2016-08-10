@@ -1,0 +1,15 @@
+{
+  "order": 0,
+  "template": "ipdatabase*",
+  "settings": {},
+  "mappings": {
+    "ipdatabase": {
+      "properties": {
+        "IPADDRESS": {
+          "type": "ip"
+        }
+      }
+    }
+  },
+  "aliases": {}
+}
