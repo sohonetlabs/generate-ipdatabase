@@ -2,6 +2,8 @@
 
 Generate or update an elasticsearch ipdatabase index from [Firehol iplists](http://iplists.firehol.org/) reputation databases
 
+This is intended to be used with [logstash-filter-ciseipdb](https://github.com/sohonetlabs/logstash-filter-ciseipdb)
+
 ## Using it
 
 Install the requirements by running ```pip install -r requirements.txt```
