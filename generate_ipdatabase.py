@@ -124,7 +124,7 @@ def update(data, name, shortname, category):
       '_index': ELASTICSEARCH_INDEX,
       '_type': 'ipdatabase',
       '_source': {
-        '@timestamp': datetime.datetime.now().isoformat(),
+        '@timestamp': datetime.datetime.utcnow().isoformat(),
         'database': {
           'name': name,
           'shortname': shortname,
