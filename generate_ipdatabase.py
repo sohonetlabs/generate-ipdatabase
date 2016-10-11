@@ -156,7 +156,6 @@ def update(data, name, shortname, category):
     helpers.bulk(client, actions)
 
 if __name__ == "__main__":
-    global config
     config = getconfig(sys.argv[1:])
 
     DEBUG = False
