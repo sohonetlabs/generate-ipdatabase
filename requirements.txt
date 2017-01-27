@@ -1,4 +1,4 @@
-requests==2.10.0
+requests==2.13.0
 voluptuous==0.9.1
 PyYAML==3.11
 elasticsearch==5.1.0
